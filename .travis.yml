@@ -8,5 +8,6 @@ before_install:
         - go get code.google.com/p/go.tools/cmd/cover
 script:
         - go test -bench=. -benchmem -covermode=count -coverprofile=eea.coverprofile github.com/emil2k/go-math/eea
+        - go test -bench=. -benchmem -covermode=count -coverprofile=rijndael.coverprofile github.com/emil2k/go-math/rijndael
         - $HOME/gopath/bin/gover
         - $HOME/gopath/bin/goveralls -coverprofile=gover.coverprofile -service travis-ci -repotoken xbFrMOp5Af3ieUiUvcvE1MqrZU45yEwR7
