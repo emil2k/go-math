@@ -1,0 +1,12 @@
+language: go
+go:
+        - tip
+before_install:
+        - go get github.com/axw/gocov/gocov
+        - go get github.com/modocache/gover
+        - go get github.com/mattn/goveralls
+        - go get code.google.com/p/go.tools/cmd/cover
+script:
+        - go test -bench=. -benchmem -covermode=count -coverprofile=eea.coverprofile github.com/emil2k/go-math/eea
+        - $HOME/gopath/bin/gover
+        - $HOME/gopath/bin/goveralls -coverprofile=gover.coverprofile -service travis-ci -repotoken xbFrMOp5Af3ieUiUvcvE1MqrZU45yEwR7
