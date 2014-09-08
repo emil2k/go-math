@@ -1,4 +1,6 @@
 # Go Math
+[![Build Status](https://travis-ci.org/emil2k/go-math.svg)](https://travis-ci.org/emil2k/go-math)
+[![Coverage Status](https://img.shields.io/coveralls/emil2k/go-math.svg)](https://coveralls.io/r/emil2k/go-math)
 
 Compilation of various math packages written in Go.
 
