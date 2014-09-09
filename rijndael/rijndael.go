@@ -1,5 +1,4 @@
 // Package rijndael contains helper functions to deal with Rijndael finite fields.
-
 package rijndael
 
 // Add adds two byte length polynomials in the GF(2^8)

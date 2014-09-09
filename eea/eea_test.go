@@ -1,6 +1,7 @@
 package eea
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -31,4 +32,16 @@ func TestGCD(t *testing.T) {
 	case qb != abs(b/gcd):
 		t.Errorf("Computing quotient of b failed with %d", qb)
 	}
+}
+
+func ExampleGCD() {
+	a, b := 240, 46
+	gcd, ca, cb, qa, qb := GCD(a, b)
+	fmt.Printf("Greatest common divisor : %d\n", gcd)
+	fmt.Printf("Bezout's coeffecients : %d (%d) & %d (%d)\n", ca, a, cb, b)
+	fmt.Printf("GCD quotients absolute values : %d (%d) & %d (%d)\n", qa, a, qb, b)
+	// Output:
+	// Greatest common divisor : 2
+	// Bezout's coeffecients : -9 (240) & 47 (46)
+	// GCD quotients absolute values : 120 (240) & 23 (46)
 }

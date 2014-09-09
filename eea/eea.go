@@ -1,5 +1,4 @@
 // Package eea is an implementation of the Extended Euclidean algorithm.
-
 package eea
 
 type state struct {
