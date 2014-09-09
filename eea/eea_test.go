@@ -34,6 +34,21 @@ func TestGCD(t *testing.T) {
 	}
 }
 
+func TestMMI(t *testing.T) {
+	a, n := 21, 5
+	if x, err := MMI(a, n); err != nil {
+		t.Errorf("Computing mmi failed with error %s", err)
+	} else if i := x * a % n; i != 1 {
+		t.Errorf("Commputing mmi failed when inversing with %d", i)
+	}
+}
+
+func TestMMINoInverse(t *testing.T) {
+	if _, err := MMI(2, 2); err != NoInverse {
+		t.Errorf("Computing mmi with no inverse failed with wrong error %s", err)
+	}
+}
+
 func ExampleGCD() {
 	a, b := 240, 46
 	gcd, ca, cb, qa, qb := GCD(a, b)

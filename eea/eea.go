@@ -1,6 +1,10 @@
 // Package eea is an implementation of the Extended Euclidean algorithm.
 package eea
 
+import (
+	"errors"
+)
+
 type state struct {
 	i  int // iteration number
 	q  int // reprsents quotient of r0/r1
@@ -37,6 +41,24 @@ func GCD(a, b int) (gcd, ca, cb, qa, qb int) {
 		s.compute()
 	}
 	return s.r0, s.s0, s.t0, abs(s.t1), abs(s.s1)
+}
+
+// NoInverse is returned when an inverse does not exist.
+var NoInverse = errors.New("inverse does not exist")
+
+// MMI uses the Extended Euclidean algorithm to compute the modular multiplicative inverse
+// of a mod n. To have an inverse a and n must be coprime ( gcd = 1 ) if not will return
+// NoInverse error.
+func MMI(a, n int) (int, error) {
+	s := newState(n, a)
+	for s.r1 != 0 {
+		s.compute()
+	}
+	if s.r0 != 1 {
+		return 0, NoInverse
+	} else {
+		return s.t0, nil
+	}
 }
 
 // abs returns the absolute value for an int
